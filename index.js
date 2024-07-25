@@ -4,6 +4,13 @@ var cliks = 0;
 
 let primeiroRound = true;
 
+$(document).click(function (e) { 
+    if (primeiroRound) {
+        primeiroRound = false;
+        iniciarJogo();
+    }
+});
+
 $(document).keydown(function(e) { 
     if (primeiroRound && e.key === "a") {
         primeiroRound = false;
@@ -60,6 +67,13 @@ function gameOver(){
         ordem = [];
         cliks = 0;
         $(document).off("keydown");
+        iniciarJogo();
+    });
+    $(".btn").off("click").click(function (e) { 
+        cor = "" ;
+        ordem = [];
+        cliks = 0;
+        $(".btn").off("click");
         iniciarJogo();
     });
     
