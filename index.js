@@ -47,10 +47,13 @@ function clickDoJogador(){
 }
 
 function gameOver(){
+    clearTimeout();
     $("body").addClass('game-over');
     let som = new Audio(src = `./sounds/wrong.mp3`);
     som.play();
     setTimeout(function(){$("body").removeClass("game-over");}, 100);
+    setTimeout(function(){$("body").addClass("game-over");}, 200);
+    setTimeout(function(){$("body").removeClass("game-over");}, 300);
     $("h1").text("GAME-OVER PRESS ANY KEY TO RESTART");
     $(document).off("keydowm").keydown(function (e) { 
         cor = "" ;
